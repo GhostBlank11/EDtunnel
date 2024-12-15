@@ -153,7 +153,7 @@ async function handleDefaultPath(url, request) {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="https://github.com/DikshantDeoli/IP-INFO/blob/b8c69753254d60481da801225d4d0c9be6d8ecd1/style.css" />
+    <link rel="stylesheet" href="https://raw.githubusercontent.com/DikshantDeoli/IP-INFO/b8c69753254d60481da801225d4d0c9be6d8ecd1/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -197,7 +197,7 @@ async function handleDefaultPath(url, request) {
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
         crossorigin="anonymous"
       ></script>
-      <script src="https://github.com/DikshantDeoli/IP-INFO/blob/b8c69753254d60481da801225d4d0c9be6d8ecd1/app.js"></script>
+      <script src="https://raw.githubusercontent.com/DikshantDeoli/IP-INFO/b8c69753254d60481da801225d4d0c9be6d8ecd1/app.js"></script>
     </div>
   </body>
 </html>
