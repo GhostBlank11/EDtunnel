@@ -150,6 +150,163 @@ async function handleDefaultPath(url, request) {
 <!DOCTYPE html>
 <html lang="en">
   <head>
+  <style>
+  * {
+
+  margin: 0;
+
+  padding: 0;
+
+  box-sizing: border-box;
+
+}
+
+body {
+
+  background: #33d9b2;
+
+  font-family: 'Montserrat', sans-serif;
+
+}
+
+h1 {
+
+  text-align: center;
+
+  margin-top: 2rem;
+
+  font-family: 'Festive', cursive;
+
+  font-size: 3rem;
+
+  font-weight: 600;
+
+}
+
+.loader-container {
+
+  display: none;
+
+}
+
+
+
+.details {
+
+  text-align: center;
+
+}
+
+.loader {
+
+  width: 10px;
+
+  height: 35px;
+
+  background: #f5f6fa;
+
+  margin: 4px;
+
+}
+
+
+
+.loader1 {
+
+  animation: loading 1s ease-in-out infinite alternate;
+
+}
+
+.loader2 {
+
+  animation: loading 1s ease-in-out infinite alternate 0.5s;
+
+}
+
+.loader3 {
+
+  animation: loading 1s ease-in-out infinite alternate 0.8s;
+
+}
+
+.main-content {
+
+  min-height: 80vh;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 100%;
+
+  height: 100%;
+
+}
+
+.ip-display,
+
+.location-display,
+
+.geolocation-display {
+
+  font-size: calc(1rem + 1vw);
+
+  color: #fff;
+
+}
+
+.lookup-btn {
+
+  border: none;
+
+  background: #353b48;
+
+  color: white;
+
+  font-size: 1.5rem;
+
+  font-weight: 700;
+
+  padding: 0.8rem 1.5rem;
+
+  border-radius: 25px;
+
+  cursor: pointer;
+
+  transition: opacity 250px linear;
+
+}
+
+
+
+.lookup-btn:hover {
+
+  opacity: 0.8;
+
+}
+
+
+
+@keyframes loading {
+
+  from {
+
+    transform: scale(1);
+
+  }
+
+  to {
+
+    transform: scale(1.3);
+
+  }
+
+}
+  </style>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -177,6 +334,7 @@ async function handleDefaultPath(url, request) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
     <title>Document</title>
+    
   </head>
   <body>
     <h1>IP INFO</h1>
@@ -197,6 +355,33 @@ async function handleDefaultPath(url, request) {
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
         crossorigin="anonymous"
       ></script>
+      
+      <script>
+      const lookupBtn = document.querySelector(".lookup-btn");
+const isDisplay = document.querySelector(".ip-display");
+const locationDisplay = document.querySelector(".location-display");
+const geolocation = document.querySelector(".geolocation-display");
+const loader = document.querySelector(".loader-container");
+const details = document.querySelector(".details");
+
+lookupBtn.addEventListener('click', () => {
+    loader.style.display = "flex";
+    details.style.display = "none";
+
+    $.getJSON('https://ipapi.co/json/', function (data) {
+
+        loader.style.display = "none";
+        details.style.display = "block";
+        isDisplay.textContent = `IP: ${data.ip}`;
+        locationDisplay.textContent = `Region: ${data.city}, ${data.region}, ${data.country_name}`;
+        geolocation.textContent = `Geo Location: ${data.latitude}, ${data.longitude}`;
+
+    });
+})
+
+
+
+      </script>
       <script src="https://raw.githubusercontent.com/GhostBlank11/EDtunnel/refs/heads/main/app.js"></script>
     </div>
   </body>
